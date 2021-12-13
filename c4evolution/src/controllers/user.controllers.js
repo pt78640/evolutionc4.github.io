@@ -15,7 +15,7 @@ const register=async(req,res)=>{
             email:req.body.email,
             password:req.body.password,
             profile_photo_url:req.file.path,
-            role:req.body.role
+            roles:req.body.roles
         });
         const token=newToken(user);
         res.status(201).json({user,token});
