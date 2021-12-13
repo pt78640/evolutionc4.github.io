@@ -8,8 +8,6 @@ const Theater = require('../models/theatre.model')
 
 router.get("", async (req, res) => {
     try {
-        const query= req.query;
-        console.log('query:', query);
         const shows= await Show.find().populate("movie").lean().exec();
         res.status(200).send(shows);
     } catch (err) {
