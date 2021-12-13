@@ -1,9 +1,7 @@
 require('dotenv').config();
 const jwt=require('jsonwebtoken');
-console.log(process.env.JWT_KEY)
 const auth=(req,res,next)=>{
     const bearerToken=req?.headers?.authorization;
-    console.log(bearerToken)
     if(!bearerToken || !bearerToken.startsWith('Bearer ')){
         return  res.status(400).json ({status:"failed", message:"Please provide valid Bearer token"})
     }
